@@ -34,62 +34,74 @@ O projeto simula o atendimento de um chamado envolvendo um computador do setor f
 
 ---
 
-## ⚙️ Como Executar o Projeto
+## ⚙️ Como executar o projeto
 
-### 🐳 Opção 1: Via Docker Compose
+### 🐳 Via Docker Compose
 
-**1. Pré-requisitos**
+#### 1. Pré-requisitos
 
-- Linux ou Ubuntu via WSL.
+- Linux ou Ubuntu via WSL2.
 - Docker Engine.
-- Docker Compose.
+- Docker Compose v2 ou superior.
 
-**2. Clonar o repositório**
+#### 2. Clonar o repositório
 
 ```bash
-git clone https://github.com/SEU_USUARIO/glpi-service-desk-lab.git
+git clone https://github.com/yuoproz/glpi-service-desk-lab.git
 cd glpi-service-desk-lab
 ```
 
-**3. Configurar as variáveis de ambiente**
+#### 3. Configurar as variáveis de ambiente
 
-Crie um arquivo `.env` na raiz do projeto com as variáveis exigidas pela configuração do GLPI e do MySQL.
+Crie o arquivo `.env` a partir do modelo fornecido:
 
-Use como referência as variáveis presentes no arquivo `docker-compose.yml` e as exigidas pela imagem do GLPI utilizada.
+```bash
+cp .env.example .env
+```
 
-**Não publique o arquivo `.env` nem compartilhe suas senhas.**
+Abra o arquivo `.env` e configure as variáveis necessárias para o GLPI e o MySQL.
 
-**4. Iniciar os serviços**
+**Importante:** utilize credenciais próprias e não publique o arquivo `.env`. Ele contém informações privadas e deve permanecer fora do Git.
+
+#### 4. Validar a configuração
+
+```bash
+docker compose config --quiet
+```
+
+Se o comando terminar sem erros, prossiga.
+
+#### 5. Iniciar os serviços
 
 ```bash
 docker compose up -d
 ```
 
-**5. Verificar os containers**
+#### 6. Verificar os contêineres
 
 ```bash
 docker compose ps
 ```
 
-**6. Acessar o GLPI**
+Confirme se os serviços do GLPI e do MySQL estão em execução.
+
+#### 7. Acessar o GLPI
 
 Abra o navegador e acesse:
 
-```text
 http://localhost:8080
-```
 
-Na primeira execução, siga as instruções de instalação do GLPI, caso necessário.
+Na primeira execução, siga as instruções de instalação exibidas pelo GLPI, caso necessário.
 
-**7. Parar os serviços**
+#### 8. Parar os serviços
 
 ```bash
 docker compose down
 ```
 
-Os volumes de dados não são removidos por esse comando. Evite usar `docker compose down -v` se quiser preservar os dados do laboratório.
+Esse comando para e remove os contêineres, mas preserva os volumes de dados.
 
----
+**Atenção:** evite executar `docker compose down -v` se quiser preservar os dados do laboratório, pois esse comando também remove os volumes declarados pelo projeto.
 
 ## 🔎 Exemplo de Investigação de Rede
 
