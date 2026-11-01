@@ -151,13 +151,17 @@ O comando foi utilizado para verificar a resolução do nome de domínio.
 
 ## 📸 Evidências do projeto
 
-Esta seção será complementada com capturas de tela do ambiente e das atividades realizadas:
+**Chamado: problema relatado e investigação inicial**
+![Histórico do chamado](docs/01-chamado-historico.png)
 
-- Painel principal do GLPI.
-- Chamado criado e sua classificação.
-- Histórico da investigação inicial.
-- Solução registrada e encerramento do chamado.
-- Contêineres em execução no Docker Compose.
+**Solução registrada e aprovada (cenário simulado)**
+![Solução aprovada](docs/02-solucao-aprovada.png)
+
+**Lista de chamados: chamado #1 encerrado, prioridade média**
+![Lista de chamados](docs/03-lista-chamados.png)
+
+**Contêineres GLPI e MySQL em execução**
+![Docker Compose](docs/04-docker-compose-ps.png)
 
 As imagens devem representar o funcionamento real do ambiente e não podem expor senhas, tokens ou outras informações confidenciais.
 
