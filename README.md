@@ -1,69 +1,67 @@
 # 🖥️ GLPI Service Desk Lab — Simulação de Suporte Técnico N1
 
-Um laboratório prático de **Service Desk e Suporte Técnico N1**, utilizando **GLPI**, **Docker Compose** e **MySQL**, desenvolvido para praticar o gerenciamento de incidentes, a investigação inicial e a documentação de soluções de TI.
+Laboratório prático de Service Desk e Suporte Técnico N1 utilizando GLPI, Docker Compose e MySQL. O projeto foi desenvolvido para praticar o gerenciamento de incidentes, a investigação inicial, o registro de evidências e a documentação de soluções de TI.
 
-O projeto simula o atendimento de um chamado envolvendo um computador do setor financeiro sem acesso à internet. O objetivo é demonstrar o fluxo de atendimento, o registro das evidências, a análise inicial e o encerramento documentado do chamado.
+O cenário simula um chamado envolvendo um computador do setor financeiro sem acesso à internet. O objetivo é demonstrar o fluxo de atendimento, o planejamento dos testes de diagnóstico e o encerramento documentado do chamado.
 
----
+> **Transparência:** o chamado é fictício. Os testes de rede foram realizados no computador utilizado no laboratório, não no equipamento fictício do solicitante. A falha de DHCP e sua correção foram documentadas como uma hipótese de simulação, e não como um reparo realizado em um equipamento real.
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Tecnologias utilizadas
 
-- **GLPI:** sistema de gerenciamento de serviços de TI (ITSM) para registro, acompanhamento e resolução de chamados.
-- **Linux / Ubuntu via WSL:** ambiente utilizado para executar e administrar o laboratório.
-- **Docker:** execução dos serviços em containers.
-- **Docker Compose:** configuração e gerenciamento dos serviços GLPI e MySQL.
+- **GLPI:** gerenciamento de serviços de TI (ITSM) e registro de chamados.
+- **Linux / Ubuntu via WSL2:** ambiente utilizado para executar e administrar o laboratório.
+- **Docker Engine:** execução dos serviços em contêineres.
+- **Docker Compose:** configuração e gerenciamento dos serviços.
 - **MySQL:** banco de dados utilizado pelo GLPI.
-- **Redes TCP/IP:** prática de conceitos de conectividade, endereçamento IPv4, DHCP e DNS.
+- **Redes TCP/IP:** estudo de conectividade, endereçamento IPv4, DHCP e DNS.
 - **Comandos de diagnóstico:** utilização de `ipconfig`, `ping` e `nslookup`.
-- **Git & GitHub:** versionamento e documentação do projeto.
+- **Git e GitHub:** versionamento e documentação do projeto.
 
----
+## 🚀 Funcionalidades e atividades praticadas
 
-## 🚀 Funcionalidades e Atividades Praticadas
-
-- [x] **Gerenciamento de Chamados:** criação e acompanhamento de um incidente no GLPI.
-- [x] **Classificação do Incidente:** definição de prioridade, impacto e urgência.
-- [x] **Documentação da Investigação:** registro dos testes iniciais, dos resultados e das limitações encontradas.
-- [x] **Registro de Solução:** documentação de uma solução hipotética para um problema de configuração DHCP.
-- [x] **Aprovação e Encerramento:** conclusão do fluxo do chamado no GLPI.
-- [x] **Ambiente Containerizado:** execução do GLPI e do MySQL por meio do Docker Compose.
-- [x] **Persistência de Dados:** utilização de volumes Docker para armazenar os dados dos serviços.
-- [x] **Segurança de Credenciais:** utilização de um arquivo `.env` local, excluído do versionamento por meio do `.gitignore`.
-
-> **Importante:** o chamado de suporte é fictício. Os testes de rede foram executados no computador utilizado no laboratório, e não no computador fictício do solicitante. A falha DHCP e sua correção foram documentadas como parte da simulação, não como um reparo realizado em um equipamento real.
-
----
+- **Gerenciamento de chamados:** criação e acompanhamento de um incidente no GLPI.
+- **Classificação do incidente:** definição de prioridade, impacto e urgência no cenário simulado.
+- **Documentação da investigação:** registro dos testes iniciais, dos resultados observados e das limitações.
+- **Registro da solução:** documentação de uma hipótese de falha de configuração DHCP.
+- **Encerramento do chamado:** conclusão do fluxo simulado no GLPI.
+- **Ambiente containerizado:** execução do GLPI e do MySQL por meio do Docker Compose.
+- **Persistência de dados:** utilização de volumes Docker para armazenar os dados dos serviços.
+- **Proteção de credenciais:** utilização de um arquivo `.env` local, excluído do versionamento por meio do `.gitignore`.
 
 ## ⚙️ Como executar o projeto
 
-### 🐳 Via Docker Compose
-
-#### 1. Pré-requisitos
+### Pré-requisitos
 
 - Linux ou Ubuntu via WSL2.
 - Docker Engine.
 - Docker Compose v2 ou superior.
 
-#### 2. Clonar o repositório
+### 1. Clonar o repositório
 
 ```bash
 git clone https://github.com/yuoproz/glpi-service-desk-lab.git
 cd glpi-service-desk-lab
 ```
 
-#### 3. Configurar as variáveis de ambiente
+### 2. Configurar as variáveis de ambiente
 
-Crie o arquivo `.env` a partir do modelo fornecido:
+Crie o arquivo `.env` a partir do modelo:
 
 ```bash
 cp .env.example .env
 ```
 
-Abra o arquivo `.env` e configure as variáveis necessárias para o GLPI e o MySQL.
+Abra o arquivo `.env` e configure as variáveis utilizadas pelo projeto:
 
-**Importante:** utilize credenciais próprias e não publique o arquivo `.env`. Ele contém informações privadas e deve permanecer fora do Git.
+```bash
+nano .env
+```
 
-#### 4. Validar a configuração
+Utilize credenciais próprias e não publique o arquivo `.env`. Ele contém informações privadas e deve permanecer fora do versionamento.
+
+**Importante:** os valores do `.env` precisam corresponder às credenciais esperadas pelo banco de dados. Em instalações existentes com volumes persistentes, alterar o arquivo `.env` não modifica automaticamente as credenciais já armazenadas no MySQL.
+
+### 3. Validar a configuração
 
 ```bash
 docker compose config --quiet
@@ -71,13 +69,13 @@ docker compose config --quiet
 
 Se o comando terminar sem erros, prossiga.
 
-#### 5. Iniciar os serviços
+### 4. Iniciar os serviços
 
 ```bash
 docker compose up -d
 ```
 
-#### 6. Verificar os contêineres
+### 5. Verificar os contêineres
 
 ```bash
 docker compose ps
@@ -85,106 +83,98 @@ docker compose ps
 
 Confirme se os serviços do GLPI e do MySQL estão em execução.
 
-#### 7. Acessar o GLPI
+### 6. Acessar o GLPI
 
 Abra o navegador e acesse:
 
 http://localhost:8080
 
-Na primeira execução, siga as instruções de instalação exibidas pelo GLPI, caso necessário.
+Na primeira execução, siga as instruções de instalação do GLPI, caso necessário.
 
-#### 8. Parar os serviços
+### 7. Parar os serviços
 
 ```bash
 docker compose down
 ```
 
-Esse comando para e remove os contêineres, mas preserva os volumes de dados.
+Esse comando para e remove os contêineres, mas preserva os volumes nomeados utilizados para armazenar os dados.
 
-**Atenção:** evite executar `docker compose down -v` se quiser preservar os dados do laboratório, pois esse comando também remove os volumes declarados pelo projeto.
+> **Atenção:** evite executar `docker compose down -v` se quiser preservar os dados do laboratório. Essa opção também remove os volumes declarados no projeto.
 
-## 🔎 Exemplo de Investigação de Rede
+## 🔎 Exemplo de investigação de rede
 
-Durante o laboratório, foram praticados comandos básicos de diagnóstico no computador utilizado para os testes.
+Durante o laboratório, foram executados comandos básicos de diagnóstico no computador utilizado para os testes.
 
-**1. Consultar a configuração de rede**
+### 1. Consultar a configuração de rede
 
-```powershell
+```cmd
 ipconfig
 ```
 
-Permite consultar os endereços IP, as máscaras de sub-rede e os gateways disponíveis nas interfaces de rede.
+Permite consultar informações como endereços IP, máscaras de sub-rede e gateways das interfaces de rede.
 
-**2. Testar a conectividade IP**
+### 2. Testar a conectividade IP
 
-```powershell
+```bash
 ping 1.1.1.1
 ```
 
-No teste realizado, houve resposta aos quatro pacotes enviados, sem perda.
+**Resultado observado:** os quatro pacotes enviados receberam resposta, sem perda.
 
-**3. Verificar a resolução DNS**
+Esse resultado indica conectividade IP com o endereço testado naquele momento. Isoladamente, não comprova que todos os sites ou serviços estejam acessíveis.
 
-```powershell
+### 3. Verificar a resolução DNS
+
+```bash
 nslookup google.com
 ```
 
 O comando foi utilizado para verificar a resolução do nome de domínio.
 
-**Limitação:** esses resultados confirmam apenas o comportamento observado no computador de teste. Não identificam a causa do incidente fictício registrado no GLPI.
+**Limitação:** os resultados demonstram apenas o comportamento observado no computador de teste. Não foi identificada a causa real do incidente fictício registrado no GLPI.
 
----
+## 📋 Cenário do chamado simulado
 
-## 📋 Cenário do Chamado Simulado
+**Título:** Sem acesso à internet no computador — setor financeiro.
 
-**Título:** Sem acesso à internet no computador — setor financeiro
+**Problema relatado:** o usuário informa que está conectado ao Wi-Fi, mas não consegue acessar sites nem o sistema financeiro.
 
-**Problema relatado:** o usuário informa que está conectado ao Wi-Fi, mas não consegue acessar sites e o sistema financeiro.
+**Impacto:** as atividades do setor financeiro seriam comprometidas no cenário proposto.
 
-**Impacto:** atividade do setor financeiro comprometida no cenário proposto.
+**Investigação inicial:** registro do incidente e planejamento dos testes necessários no computador do solicitante, incluindo a verificação da configuração IPv4, do gateway e do DHCP.
 
-**Investigação inicial:** registro do incidente e identificação dos próximos testes necessários no computador do solicitante, incluindo a verificação da configuração IPv4 e do DHCP.
+**Hipótese de solução documentada:** falha temporária na obtenção da configuração IPv4 via DHCP, com proposta de atualização da configuração de rede e posterior validação da conectividade.
 
-**Solução hipotética documentada:** falha temporária na obtenção da configuração IPv4 via DHCP, seguida da renovação da configuração de rede e da validação do acesso.
+**Estado final:** chamado encerrado no GLPI após o registro da solução simulada.
 
-**Estado final:** chamado fechado no GLPI após o registro e a aprovação da solução simulada.
+> A hipótese de falha DHCP não foi confirmada experimentalmente no computador fictício. A solução registrada faz parte da simulação e não deve ser interpretada como um diagnóstico real.
 
----
+## 📸 Evidências do projeto
 
-## 📸 Evidências do Projeto
+Esta seção será complementada com capturas de tela do ambiente e das atividades realizadas:
 
-Adicione nesta seção capturas de tela que demonstrem:
+- Painel principal do GLPI.
+- Chamado criado e sua classificação.
+- Histórico da investigação inicial.
+- Solução registrada e encerramento do chamado.
+- Contêineres em execução no Docker Compose.
 
-1. O painel principal do GLPI.
-2. O chamado criado e sua classificação.
-3. O histórico da investigação inicial.
-4. A solução registrada e aprovada.
-5. O estado final do chamado.
-6. Os containers em execução no Docker Compose.
+As imagens devem representar o funcionamento real do ambiente e não podem expor senhas, tokens ou outras informações confidenciais.
 
-As imagens devem mostrar o funcionamento real do ambiente e preservar senhas, tokens e outras informações sensíveis.
-
----
-
-## 🎯 Competências Desenvolvidas
+## 🎯 Competências praticadas
 
 - Fundamentos de Service Desk e ITSM.
 - Registro, classificação e documentação de incidentes.
-- Investigação inicial e interpretação de evidências.
+- Planejamento de investigação inicial e interpretação de evidências.
 - Fundamentos de IPv4, DHCP, DNS e conectividade.
 - Utilização de comandos básicos de diagnóstico de rede.
 - Execução de aplicações com Docker Compose.
-- Administração básica de um ambiente Linux via WSL.
-- Documentação técnica e segurança de credenciais.
+- Administração básica de ambiente Linux via WSL2.
+- Documentação técnica e proteção de credenciais.
 
----
+## 📌 Status do projeto
 
-## 📌 Status do Projeto
-
-**Ambiente GLPI:** executado localmente com Docker Compose.
-
-**Fluxo de atendimento:** praticado por meio de um chamado fictício, documentado e encerrado.
-
-**Próximas melhorias:** adicionar capturas de tela organizadas, revisar a configuração para facilitar a reprodução do ambiente e ampliar o laboratório com novos cenários de suporte.
-
----
+- **Ambiente:** GLPI e MySQL executados localmente com Docker Compose.
+- **Atendimento:** fluxo praticado por meio de um chamado fictício, documentado e encerrado.
+- **Documentação:** instruções de execução e configuração disponíveis no repositório.
+- **Próximas melhorias:** adicionar capturas de tela reais, melhorar a reprodução do ambiente, documentar backup e restauração e ampliar o laboratório com novos cenários de suporte.
