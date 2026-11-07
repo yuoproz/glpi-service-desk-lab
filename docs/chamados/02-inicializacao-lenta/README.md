@@ -13,7 +13,7 @@ O usuário relata que o computador demora aproximadamente oito minutos para inic
 3. Para testar uma possível contribuição desses programas, foi desativada a inicialização automática do Free Download Manager e do Roblox Game Client. Os programas continuaram disponíveis para abertura manual.
 4. O computador foi reiniciado para observar o comportamento após a alteração.
 
-**Observação:** Microsoft Edge e Microsoft OneDrive já estavam desabilitados antes do atendimento e não foram alterados durante o procedimento.
+**Observação:** Microsoft Edge e Microsoft OneDrive já estavam desabilitados antes do atendimento e não foram alterados.
 
 ## Causa
 
