@@ -13,6 +13,8 @@ O usuário relata que o computador demora aproximadamente oito minutos para inic
 3. Para testar uma possível contribuição desses programas, foi desativada a inicialização automática do Free Download Manager e do Roblox Game Client. Os programas continuaram disponíveis para abertura manual.
 4. O computador foi reiniciado para observar o comportamento após a alteração.
 
+Observação: Microsoft Edge e Microsoft OneDrive já estavam desabilitados antes do atendimento e não foram alterados durante o procedimento.
+
 ## Causa
 
 **Possível contribuição de aplicativos na inicialização, sem confirmação de causa única.** A presença de programas com alto impacto indica que eles podem contribuir para a demora, mas os testes realizados não demonstraram que eram os únicos responsáveis pelo tempo de inicialização.
@@ -38,6 +40,10 @@ Recomenda-se revisar periodicamente os aplicativos configurados para iniciar com
 **Registro da investigação e da solução no chamado.**
 
 ![Investigação e solução](evidencias/02-investigacao-solucao.png)
+
+**Estado dos aplicativos na aba Inicializar do Gerenciador de Tarefas após as alterações.**
+
+![Gerenciador de Tarefas — Inicializar](evidencias/03-gerenciador-tarefas-inicializacao.png)
 
 ## Limitações
 
