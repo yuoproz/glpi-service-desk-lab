@@ -33,16 +33,11 @@ O ambiente é executado localmente e os chamados apresentados são cenários sim
 |---|---|---|---|
 | 01 | Computador sem acesso à internet | Concluído (simulado) | [Ver chamado](docs/chamados/01-sem-acesso-internet/README.md) |
 | 02 | Inicialização lenta do Windows | Concluído (simulado) | [Ver chamado](docs/chamados/02-inicializacao-lenta/README.md) |
-| 03 | Redefinição de senha | Planejado | — |
-| 04 | Impressora não imprime | Planejado | — |
+| 03 | Falha de acesso por proxy incorreto | Concluído em laboratório | [Ver chamado](docs/chamados/03-falha-proxy/README.md) |
+| 04 | Falha ao conectar à VPN corporativa | Em investigação | — |
 | 05 | Problemas de conexão Wi-Fi | Planejado | — |
-| 06 | Falha ao acessar um site | Planejado | — |
-| 07 | Instalação de software | Planejado | — |
-| 08 | Pouco espaço em disco | Planejado | — |
-| 09 | Acesso a pasta compartilhada | Planejado | — |
-| 10 | Computador desconectado da rede | Planejado | — |
 
-> Somente cenários com documentação e evidências disponíveis possuem link. Os itens planejados ainda não representam atendimentos executados.
+> Somente cenários com documentação concluída possuem link. Os demais ainda não representam atendimentos finalizados.
 
 ## ⚙️ Como executar o ambiente
 
