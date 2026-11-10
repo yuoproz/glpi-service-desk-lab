@@ -35,7 +35,7 @@ O ambiente é executado localmente e os chamados apresentados são cenários sim
 | 02 | Inicialização lenta do Windows | Concluído (simulado) | [Ver chamado](docs/chamados/02-inicializacao-lenta/README.md) |
 | 03 | Falha de acesso por proxy incorreto | Concluído em laboratório | [Ver chamado](docs/chamados/03-falha-proxy/README.md) |
 | 04 | Falha ao conectar à VPN corporativa | Em investigação | — |
-| 05 | Problemas de conexão Wi-Fi | Planejado | — |
+| 05 | Falha de resolução DNS no Windows | Concluído em laboratório | [Ver chamado](docs/chamados/05-falha-dns/README.md) |
 
 > Somente cenários com documentação concluída possuem link. Os demais ainda não representam atendimentos finalizados.
 
@@ -98,6 +98,6 @@ Esse comando remove os contêineres e preserva os volumes nomeados. Evite `docke
 
 ## 📌 Status do projeto
 
-**Dois cenários de suporte documentados**, com ambiente GLPI e MySQL executado localmente via Docker Compose. Os próximos cenários serão adicionados após a realização das atividades, validação dos resultados e organização das evidências.
+**Quatro cenários de suporte documentados**, sendo dois simulados e dois reproduzidos e validados em laboratório., com ambiente GLPI e MySQL executado localmente via Docker Compose. Os próximos cenários serão adicionados após a realização das atividades, validação dos resultados e organização das evidências.
 
 > **Transparência:** os chamados deste laboratório são simulações para fins de estudo. Cada documentação diferencia as ações realmente executadas no computador de laboratório das hipóteses e etapas simuladas. Os resultados não devem ser interpretados como experiência de atendimento em ambiente corporativo real.
